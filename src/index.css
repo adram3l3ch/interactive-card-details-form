@@ -1,13 +1,104 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap");
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+	font-size: 18px;
+}
+
+body {
+	font-family: "Space Grotesk", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.main {
+	display: grid;
+	grid-template-columns: 32% 1fr;
+	min-height: 100vh;
+	max-width: 1500px;
+	margin-inline: auto;
+}
+
+.left {
+	background: url("./assets/bg-main-desktop.png") no-repeat center/cover;
+	display: grid;
+	place-content: center;
+	gap: 2rem;
+}
+
+.right {
+	display: grid;
+	place-items: center;
+	margin-left: 5rem;
+	padding: 3rem 1rem;
+}
+
+.cta {
+	background-color: hsl(278, 68%, 11%);
+	color: white;
+	font-family: inherit;
+	padding: 0.7rem;
+	grid-column: span 4;
+	border-radius: 0.5rem;
+	margin-top: 1rem;
+	cursor: pointer;
+	text-align: center;
+}
+
+.success {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	max-width: 300px;
+	width: 90%;
+	text-align: center;
+	gap: 1rem;
+}
+
+.success img {
+	width: 70px;
+	margin-inline: auto;
+	padding-bottom: 1rem;
+}
+
+.success > * {
+	grid-column: span 4;
+}
+
+.success p {
+	color: hsl(279, 6%, 55%);
+}
+
+@media (max-width: 768px) {
+	.main {
+		grid-template-columns: 1fr;
+		grid-template-rows: 250px 1fr;
+	}
+	.left {
+		padding: 1rem;
+	}
+	section {
+		margin-left: 0;
+	}
+}
+
+@media (max-width: 450px) {
+	:root {
+		font-size: 15px;
+	}
+	.left {
+		overflow-x: hidden;
+		overflow-y: visible;
+	}
 }

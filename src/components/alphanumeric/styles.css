@@ -1,0 +1,35 @@
+.alphanumeric {
+	display: flex;
+	gap: 0.15em;
+	height: 1.2em;
+	position: relative;
+	overflow: hidden;
+}
+
+.alphanumeric ul {
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	width: 0.9em;
+	flex-shrink: 0;
+	text-align: center;
+}
+
+.alphanumeric li:not(.active) {
+	position: absolute;
+	transform: translateY(100%);
+}
+
+.alphanumeric li.active {
+	animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+	from {
+		transform: translateY(100%);
+	}
+	to {
+		transform: translateY(0);
+	}
+}

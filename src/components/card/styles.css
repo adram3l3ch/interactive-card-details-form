@@ -1,0 +1,98 @@
+.card {
+	font-size: 1.5rem;
+	width: 25rem;
+	border-radius: 0.5em;
+	aspect-ratio: 16/9;
+	overflow: hidden;
+}
+
+.card-front {
+	padding: 1.5rem;
+	display: flex;
+	flex-direction: column;
+	background: url("../../assets/bg-card-front.png") no-repeat center/cover;
+	transform: translateX(30%);
+}
+
+.card-back {
+	background: url("../../assets/bg-card-back.png") no-repeat center/cover;
+	position: relative;
+	transform: translateX(50%);
+}
+
+.card__logo {
+	width: 20%;
+	height: auto;
+}
+.card__number {
+	font-size: 0.8em;
+	display: flex;
+	gap: 0.6em;
+	color: white;
+	margin-block: auto 2rem;
+}
+
+.card__footer {
+	color: white;
+	display: flex;
+	font-size: 0.5em;
+	display: flex;
+	justify-content: space-between;
+}
+
+.card__holderName {
+	display: flex;
+	gap: 0.75em;
+}
+
+.card__expiry {
+	display: flex;
+	gap: 0.2em;
+	align-items: center;
+}
+
+.cvv {
+	position: absolute;
+	color: white;
+	right: 12%;
+	top: 45%;
+	font-size: 0.55em;
+}
+
+@media (max-width: 1200px) {
+	.card {
+		font-size: 1rem;
+		width: 20rem;
+	}
+}
+@media (max-width: 1000px) {
+	.card {
+		font-size: 1rem;
+		width: 18rem;
+	}
+	.card-front {
+		transform: translateX(20%);
+	}
+	.card-back {
+		transform: translateX(35%);
+	}
+}
+@media (max-width: 850px) {
+	.card-front {
+		transform: translateX(20%);
+	}
+	.card-back {
+		transform: translateX(20%);
+	}
+}
+
+@media (max-width: 768px) {
+	.card-front {
+		transform: translate(-15%, -10%);
+		grid-row: 2/3;
+		z-index: 1;
+	}
+	.card-back {
+		transform: translateX(15%);
+	}
+}

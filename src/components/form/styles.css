@@ -1,0 +1,46 @@
+.card__details {
+	width: min(100%, 350px);
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 1.5rem;
+}
+.card__details .card__details__input {
+	grid-column: span 4;
+	display: flex;
+	flex-direction: column;
+	gap: 0.4rem;
+	font-size: 0.7rem;
+	letter-spacing: 0.07em;
+}
+
+.card__details input {
+	font-family: inherit;
+	width: 100%;
+	font-size: 0.9rem;
+	padding: 0.6rem 0.75rem;
+	outline: none;
+	border-radius: 0.5rem;
+	border: 1px solid hsl(276, 4%, 78%);
+}
+
+.card__details input::placeholder {
+	color: hsl(276, 4%, 78%);
+}
+
+.card__details__input .error {
+	color: rgb(238, 61, 16);
+	font-size: 0.6rem;
+	margin-left: 0.2rem;
+}
+
+.card__details__input:nth-of-type(3) {
+	grid-column: span 2;
+}
+.card__details__input:nth-of-type(4) {
+	grid-column: span 2;
+}
+
+.card__details__input .expiry {
+	display: flex;
+	gap: 1rem;
+}
