@@ -88,17 +88,22 @@ img {
 	.left {
 		padding: 1rem;
 	}
-	section {
+	.right {
 		margin-left: 0;
 	}
 }
 
-@media (max-width: 450px) {
+@media (max-width: 415px) {
 	:root {
-		font-size: 15px;
+		font-size: 16px;
+	}
+	.card__details {
+		width: 100% !important;
+	}
+	.main {
+		grid-template-rows: 300px 1fr;
 	}
 	.left {
 		overflow-x: hidden;
-		overflow-y: visible;
 	}
 }
