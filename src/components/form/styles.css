@@ -1,5 +1,5 @@
 .card__details {
-	width: min(100%, 350px);
+	width: min(100%, 20rem);
 	display: grid;
 	grid-template-columns: repeat(4, 1fr);
 	gap: 1.5rem;
@@ -16,7 +16,7 @@
 .card__details input {
 	font-family: inherit;
 	width: 100%;
-	font-size: 0.9rem;
+	font-size: 1rem;
 	padding: 0.6rem 0.75rem;
 	outline: none;
 	border-radius: 0.5rem;

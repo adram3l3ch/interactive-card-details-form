@@ -4,6 +4,7 @@
 	border-radius: 0.5em;
 	aspect-ratio: 16/9;
 	overflow: hidden;
+	box-shadow: 0 10px 60px rgba(0, 0, 0, 0.205);
 }
 
 .card-front {
@@ -59,6 +60,12 @@
 	font-size: 0.55em;
 }
 
+@media (min-width: 1400px) {
+	.card {
+		font-size: 1.6rem;
+		width: 27rem;
+	}
+}
 @media (max-width: 1200px) {
 	.card {
 		font-size: 1rem;
