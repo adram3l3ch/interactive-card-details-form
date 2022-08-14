@@ -11,8 +11,16 @@ const Input = ({ placeholder, label, onChange, name, errors, data }) => {
 						placeholder="MM"
 						value={data.expM}
 						id="expM"
+						className={errors.expM ? "error-input" : ""}
 					/>
-					<input type="text" name="expY" onChange={onChange} placeholder="YY" value={data.expY} />
+					<input
+						type="text"
+						name="expY"
+						onChange={onChange}
+						placeholder="YY"
+						value={data.expY}
+						className={errors.expY ? "error-input" : ""}
+					/>
 				</div>
 				{(errors.expM || errors.expY) && <div className="error">{errors.expM || errors.expY}</div>}
 			</div>
@@ -27,6 +35,7 @@ const Input = ({ placeholder, label, onChange, name, errors, data }) => {
 				placeholder={placeholder}
 				value={data[name]}
 				id={name}
+				className={errors[name] ? "error-input" : ""}
 			/>
 			{errors[name] && <div className="error">{errors[name]}</div>}
 		</div>

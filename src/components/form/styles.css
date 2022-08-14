@@ -11,6 +11,7 @@
 	gap: 0.4rem;
 	font-size: 0.7rem;
 	letter-spacing: 0.07em;
+	position: relative;
 }
 
 .card__details input {
@@ -23,6 +24,10 @@
 	border: 1px solid hsl(276, 4%, 78%);
 }
 
+.card__details input.error-input {
+	border: 1px solid rgb(238, 61, 16);
+}
+
 .card__details input::placeholder {
 	color: hsl(276, 4%, 78%);
 }
@@ -31,6 +36,8 @@
 	color: rgb(238, 61, 16);
 	font-size: 0.6rem;
 	margin-left: 0.2rem;
+	position: absolute;
+	bottom: -1rem;
 }
 
 .card__details__input:nth-of-type(3) {
