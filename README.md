@@ -22,7 +22,7 @@ Users should be able to:
 ### Links
 
 -   Solution URL: [Github](https://github.com/adram3l3ch/interactive-card-details-form)
--   Live Site URL: [Netlify](https://adramelech-interactive-card-details-form.netlify.app)
+-   Live Site URL: [Netlify](https://adramelech-interactive-card-form.netlify.app)
 
 ## My process
 
