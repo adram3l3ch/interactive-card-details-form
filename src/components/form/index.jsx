@@ -3,32 +3,39 @@ import Input from "../input";
 import "./styles.css";
 
 const Form = ({ errors, data, setData, setDidSubmit, setShowRequire, showRequire }) => {
+	const checkLengths = input => {
+		if (input.name === "name" && input.value.length > 21) return true;
+		else if (input.name === "cvc" && input.value.length > 3) return true;
+		else if ((input.name === "expM" || input.name === "expY") && input.value.length > 2) return true;
+	};
+
+	const updateNumber = input => {
+		const original = [...input.value.replaceAll(" ", "")];
+		if (original.length > 16) return;
+		const positions = [4, 8, 12];
+		const modified = [];
+		original.forEach((v, i) => {
+			modified.push(v);
+			if (positions.includes(i + 1) && i !== original.length - 1) modified.push(" ");
+		});
+
+		setData({ ...data, number: modified.join("") });
+	};
+
 	const handleChange = e => {
 		const target = e.target;
-		if (target.name === "number") {
-			const original = [...target.value.replaceAll(" ", "")];
-			if (original.length > 16) return;
-			const positions = [4, 8, 12];
-			const modified = [];
-			original.forEach((v, i) => {
-				modified.push(v);
-				if (positions.includes(i + 1) && i !== original.length - 1) modified.push(" ");
-			});
-
-			setData({ ...data, number: modified.join("") });
-		} else if (target.name === "name" && target.value.length > 21) return;
+		if (checkLengths(target)) return;
+		if (target.name === "number") updateNumber(target);
 		else setData({ ...data, [target.name]: target.value });
 	};
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		if (!showRequire) {
-			setShowRequire(true);
-			return;
-		}
+		if (!showRequire && !Object.values(data).every(Boolean)) return setShowRequire(true);
 		if (Object.values(errors).some(Boolean)) return;
 		setDidSubmit(true);
 	};
+
 	return (
 		<form className="card__details" onSubmit={handleSubmit}>
 			<Input
