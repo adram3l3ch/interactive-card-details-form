@@ -2,7 +2,7 @@ import React from "react";
 import Input from "../input";
 import "./styles.css";
 
-const Form = ({ errors, data, setData, setDidSubmit, setShowRequire, showRequire }) => {
+const Form = ({ errors, data, setData, handleSubmit }) => {
 	const checkLengths = input => {
 		if (input.name === "name" && input.value.length > 21) return true;
 		else if (input.name === "cvc" && input.value.length > 3) return true;
@@ -29,13 +29,6 @@ const Form = ({ errors, data, setData, setDidSubmit, setShowRequire, showRequire
 		else setData({ ...data, [target.name]: target.value });
 	};
 
-	const handleSubmit = e => {
-		e.preventDefault();
-		if (!showRequire && !Object.values(data).every(Boolean)) return setShowRequire(true);
-		if (Object.values(errors).some(Boolean)) return;
-		setDidSubmit(true);
-	};
-
 	return (
 		<form className="card__details" onSubmit={handleSubmit}>
 			<Input
@@ -60,6 +53,7 @@ const Form = ({ errors, data, setData, setDidSubmit, setShowRequire, showRequire
 				errors={errors}
 				onChange={handleChange}
 				data={data}
+				type="number"
 			/>
 			<Input
 				name="cvc"
@@ -68,6 +62,7 @@ const Form = ({ errors, data, setData, setDidSubmit, setShowRequire, showRequire
 				onChange={handleChange}
 				placeholder="e.g. 123"
 				data={data}
+				type="number"
 			/>
 			<button className="cta">Confirm</button>
 		</form>

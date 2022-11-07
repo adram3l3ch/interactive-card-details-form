@@ -25,6 +25,10 @@
 	transition: border 0.1s linear;
 }
 
+input::-webkit-inner-spin-button {
+	display: none;
+}
+
 .card__details input.error-input {
 	border: 1px solid rgb(238, 61, 16);
 }

@@ -2,7 +2,7 @@ import { useState } from "react";
 import Back from "./components/card/Back";
 import Front from "./components/card/Front";
 import Form from "./components/form";
-import useError from "./hooks/useError";
+import useValidation from "./hooks/useValidation";
 import { tick } from "./assets";
 
 const defaultValues = {
@@ -16,12 +16,12 @@ const defaultValues = {
 function App() {
 	const [data, setData] = useState(defaultValues);
 	const [didSubmit, setDidSubmit] = useState(false);
-	const [showRequire, setShowRequire] = useState(false);
-	const { errors } = useError(data, showRequire);
+	const handleSubmit = () => setDidSubmit(true);
+	const { errors, onSubmit, reset: resetValidation } = useValidation(data, handleSubmit);
 	const reset = () => {
 		setData(defaultValues);
 		setDidSubmit(false);
-		setShowRequire(false);
+		resetValidation();
 	};
 	return (
 		<main className="main">
@@ -40,14 +40,7 @@ function App() {
 						</btn>
 					</div>
 				) : (
-					<Form
-						errors={errors}
-						data={data}
-						setData={setData}
-						setDidSubmit={setDidSubmit}
-						setShowRequire={setShowRequire}
-						showRequire={showRequire}
-					/>
+					<Form errors={errors} data={data} setData={setData} handleSubmit={onSubmit} />
 				)}
 			</div>
 		</main>

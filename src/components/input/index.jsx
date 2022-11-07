@@ -1,11 +1,11 @@
-const Input = ({ placeholder, label, onChange, name, errors, data }) => {
+const Input = ({ placeholder, label, onChange, name, errors, data, type }) => {
 	if (name === "expiry")
 		return (
 			<div className="card__details__input">
 				<label htmlFor="expM">{label}</label>
 				<div className="expiry">
 					<input
-						type="text"
+						type={type || "text"}
 						name="expM"
 						onChange={onChange}
 						placeholder="MM"
@@ -14,7 +14,7 @@ const Input = ({ placeholder, label, onChange, name, errors, data }) => {
 						className={errors.expM ? "error-input" : ""}
 					/>
 					<input
-						type="text"
+						type={type || "text"}
 						name="expY"
 						onChange={onChange}
 						placeholder="YY"
@@ -29,7 +29,7 @@ const Input = ({ placeholder, label, onChange, name, errors, data }) => {
 		<div className="card__details__input">
 			<label htmlFor={name}>{label}</label>
 			<input
-				type="text"
+				type={type || "text"}
 				name={name}
 				onChange={onChange}
 				placeholder={placeholder}
