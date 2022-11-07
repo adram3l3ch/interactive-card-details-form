@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AppContext } from "../../context";
 import Input from "../input";
 import "./styles.css";
 
-const Form = ({ errors, data, setData, handleSubmit }) => {
+const Form = () => {
+	const { data, setData, errors, onSubmit } = useContext(AppContext);
+
 	const checkLengths = input => {
 		if (input.name === "name" && input.value.length > 21) return true;
 		else if (input.name === "cvc" && input.value.length > 3) return true;
@@ -30,7 +33,7 @@ const Form = ({ errors, data, setData, handleSubmit }) => {
 	};
 
 	return (
-		<form className="card__details" onSubmit={handleSubmit}>
+		<form className="card__details" onSubmit={onSubmit}>
 			<Input
 				name="name"
 				label="CARDHOLDER NAME"

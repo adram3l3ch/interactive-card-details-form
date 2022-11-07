@@ -1,28 +1,12 @@
-import { useState } from "react";
+import { useContext } from "react";
 import Back from "./components/card/Back";
 import Front from "./components/card/Front";
 import Form from "./components/form";
-import useValidation from "./hooks/useValidation";
 import { tick } from "./assets";
-
-const defaultValues = {
-	name: "",
-	number: "",
-	expM: "",
-	expY: "",
-	cvc: "",
-};
+import { AppContext } from "./context";
 
 function App() {
-	const [data, setData] = useState(defaultValues);
-	const [didSubmit, setDidSubmit] = useState(false);
-	const handleSubmit = () => setDidSubmit(true);
-	const { errors, onSubmit, reset: resetValidation } = useValidation(data, handleSubmit);
-	const reset = () => {
-		setData(defaultValues);
-		setDidSubmit(false);
-		resetValidation();
-	};
+	const { data, didSubmit, reset } = useContext(AppContext);
 	return (
 		<main className="main">
 			<div className="left">
@@ -40,7 +24,7 @@ function App() {
 						</btn>
 					</div>
 				) : (
-					<Form errors={errors} data={data} setData={setData} handleSubmit={onSubmit} />
+					<Form />
 				)}
 			</div>
 		</main>

@@ -12,16 +12,16 @@ Yup.addMethod(Yup.string, "minMax", function () {
 
 export default Yup.object().shape({
 	name: Yup.string()
-		.matches(/^[a-zA-Z\s]+$/, "Invalid Name")
 		.max(20, "Max length reached")
+		.matches(/^[a-zA-Z\s]+$/, "Invalid Name")
 		.required("Name is required"),
 	number: Yup.string()
-		.matches(/^[\d\s]+$/, "Invalid card number")
 		.length(19, "Invalid card number")
+		.matches(/^[\d\s]+$/, "Invalid card number")
 		.required("Card number is required"),
 	expM: Yup.string()
 		.matches(/^(0[1-9])|(1[12])$/, "Invalid Month")
-		.required("Expiry month is required"),
-	expY: Yup.string().minMax([12, 15]).required("Expiry year is required"),
+		.required("Expiry date is required"),
+	expY: Yup.string().minMax([12, 15]).required("Expiry date is required"),
 	cvc: Yup.string().length(3, "CVC is invalid").required("CVC is required"),
 });
