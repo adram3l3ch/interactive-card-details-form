@@ -2,8 +2,11 @@ import { logo } from "../../assets";
 import AlphaNumeric from "../alphanumeric";
 import { alphabets, numbers } from "../../chars";
 import "./styles.css";
+import { useContext } from "react";
+import { AppContext } from "../../context";
 
-const Front = ({ data }) => {
+const Front = () => {
+	const { data } = useContext(AppContext);
 	const { name, number, expM, expY } = data;
 
 	const getNumber = () => {

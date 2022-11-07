@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { alphanumerics } from "../../chars";
+import { AppContext } from "../../context";
 import AlphaNumeric from "../alphanumeric";
 
-const Back = ({ cvc }) => {
+const Back = () => {
+	const {
+		data: { cvc },
+	} = useContext(AppContext);
+
 	return (
 		<div className="card card-back">
 			<div className="cvv">
